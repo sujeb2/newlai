@@ -50,7 +50,7 @@ class UI:
 
         self.wifi_item = self.canvas.create_image(25, 25, image=self.wifistatus_off, anchor='nw')
         self.batt_item = self.canvas.create_image(60, 20, image=self.battery_full, anchor='nw')
-        self.batt_percent = self.canvas.create_text(70, 20, text=f'{systemstatus.getBattPowerGauge()}%', font=self.default_bold, anchor='nw')
+        self.batt_percent = self.canvas.create_text(100, 24, text=f'{systemstatus.getBattPowerGauge()}%', font=self.default_bold, anchor='nw', fill="black")
     
     def checkSystemStatus(self):
         # battery status
