@@ -53,12 +53,11 @@ class UI:
         self.batt_percent = self.canvas.create_text(70, 20, text=f'{systemstatus.getBattPowerGauge()}%', font=self.default_bold, anchor='nw')
     
     def checkSystemStatus(self):
-        while True:
-            # battery status
-            if(not systemstatus.getBattery()): self.canvas.itemconfigure(self.batt_item, image=self.battery_none)
-            if(systemstatus.getBattPowerGauge() <= 50): self.canvas.itemconfigure(self.batt_item, image=self.battery_mid)
-            if(systemstatus.getBattPowerGauge() <= 20): self.canvas.itemconfigure(self.batt_item, image=self.battery_low)
-            self.root.after(5000, self.checkSystemStatus)
+        # battery status
+        if(not systemstatus.getBattery()): self.canvas.itemconfigure(self.batt_item, image=self.battery_none)
+        if(systemstatus.getBattPowerGauge() <= 50): self.canvas.itemconfigure(self.batt_item, image=self.battery_mid)
+        if(systemstatus.getBattPowerGauge() <= 20): self.canvas.itemconfigure(self.batt_item, image=self.battery_low)
+        self.root.after(5000, self.checkSystemStatus)
 
 if __name__ == "__main__":
     ui = UI()
